@@ -1,0 +1,46 @@
+Windows 11 skips forced networking activation:
+(shift+F10)
+oobe\bypassnro
+
+win11/10 disable updates for 10 years:
+(AdministratorCMD)
+reg add  "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings"  /v FlightSettingsMaxPauseDays /t reg_dword /d 3000 /f
+
+win10/win11 Professional Edition upgraded to Professional workstation edition:
+(AdministratorCMD)
+slmgr -ipk DXG7C-N36C4-C4HTG-X4T3X-2YV77
+
+Upgrade win11/10 Home Edition to Professional Edition key:
+(Off-grid operation)
+P6782-D2NFT-8WMXK-HC8CP-Q3WXG (24/12/26 succ)
+6NFQ9-BWXMM-WG33R-9JD8Q-63BP6 (24/12/19 succ)
+J8WVF-9X3GM-4WVYC-VDHQG-42CXT (24/12/19 失败 24/11/12 succ)
+XWHF9-NJ9MR-7KKR3-PRWGG-WXCKG
+VK7JG-NPHTM-C97JM-9MPGT-3V66T
+4N7JM-CV98F-WY9XX-9D8CF-369TT
+W269N-WFGWX-YVC9B-4J6C9-T83GX
+NYW94-47Q7H-7X9TT-W7TXD-JTYPM
+NJ4MX-VQQ7Q-FP3DB-VDGHX-7XM87
+MH37W-N47XK-V7XM9-C7227-GCQG9
+
+IDM activate:
+(Win PowerShell)
+irm massgrave.dev/ias | iex  -> 2 -> 9
+
+Win11 Toggles the classic right-click menu:
+(cmd)
+reg add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
+taskkill /f /im explorer.exe & start explorer.exe
+
+Back to new right-click menu in Win11:
+(cmd)
+reg delete "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}" /f
+taskkill /f /im explorer.exe & start explorer.exe 
+
+Bilocker off:
+(AdministratorCMD)
+manage-bde -off c:
+
+关闭快速启动（删除C盘睡眠文件）:
+(AdministratorCMD)
+powercfg -h off
