@@ -14,7 +14,7 @@ Upgrade win11/10 Home Edition to Professional Edition key:
 (Off-grid operation)
 P6782-D2NFT-8WMXK-HC8CP-Q3WXG (24/12/26 succ)
 6NFQ9-BWXMM-WG33R-9JD8Q-63BP6 (24/12/19 succ)
-J8WVF-9X3GM-4WVYC-VDHQG-42CXT (24/12/19 ʧ�� 24/11/12 succ)
+J8WVF-9X3GM-4WVYC-VDHQG-42CXT (24/12/19 失败 24/11/12 succ)
 XWHF9-NJ9MR-7KKR3-PRWGG-WXCKG
 VK7JG-NPHTM-C97JM-9MPGT-3V66T
 4N7JM-CV98F-WY9XX-9D8CF-369TT
@@ -41,6 +41,52 @@ Bilocker off:
 (AdministratorCMD)
 manage-bde -off c:
 
-�رտ���������ɾ��C��˯���ļ���:
+关闭快速启动（删除C盘睡眠文件）:
 (AdministratorCMD)
 powercfg -h off
+
+优化步骤：
+1、跳过联网激活 Windows 11 skips forced networking activation:
+(shift+F10)
+oobe\bypassnro
+
+2、安装驱动(笔记本 提前备好无线网卡驱动)
+
+3、激活windows HEU-KMS
+
+4、升级专业工作站版win10/win11 Professional Edition upgraded to Professional workstation edition:
+(AdministratorCMD)
+slmgr -ipk DXG7C-N36C4-C4HTG-X4T3X-2YV77
+
+5、关闭windows更新win11/10 disable updates for 10 years:
+(AdministratorCMD)
+reg add  "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings"  /v FlightSettingsMaxPauseDays /t reg_dword /d 3000 /f
+
+6、关闭快速启动（删除C盘睡眠文件）:
+(AdministratorCMD)
+powercfg -h off
+
+7、windows11右键菜单还原 Win11 Toggles the classic right-click menu:
+(cmd)
+reg add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
+taskkill /f /im explorer.exe & start explorer.exe
+
+8、关闭Bilocker off:
+(AdministratorCMD)
+manage-bde -off c:
+
+9、设置存储感知 保存新内容的地方
+
+10、虚拟内存调整
+
+11、浏览器优化
+
+12、启动项优化
+
+13、记事本优化
+
+14、安装office
+
+15、关闭windows实时保护
+
+16、电源和睡眠设置
